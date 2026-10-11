@@ -60,4 +60,15 @@ main {
 
     padding: 10px;
     margin: 5px 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    height: 150px;
+    width: 150px;
+    background-color: #a8d8b9;
 }
