@@ -23,35 +23,35 @@ myBooks.forEach((book) => loadBooks(book));
 console.log(myBooks);
 
 function loadBooks(book) {
-        const read = document.querySelector(".read");
-        const toRead = document.querySelector(".to-read");
-        
-        let bookCard = document.createElement("div");
-        bookCard.classList.add("book-card");
-        
-        let image = document.createElement("div");
-        image.classList.add("image");
-        
-        let title = document.createElement("h4");
-        title.textContent = `${book.title}`;
-        
-        let author = document.createElement("p");
-        author.textContent = `${book.author}`;
-        
-        let pages = document.createElement("p");
-        pages.textContent = `${book.pages} Pages`;
-        
-        bookCard.appendChild(image);
-        bookCard.appendChild(title);
-        bookCard.appendChild(author);
-        bookCard.appendChild(pages);
-        
-        if (book.status === 'read') {
-            read.appendChild(bookCard);
-        }
-        else {
-            toRead.appendChild(bookCard);
-        }
+    const read = document.querySelector(".read");
+    const toRead = document.querySelector(".to-read");
+
+    let bookCard = document.createElement("div");
+    bookCard.classList.add("book-card");
+
+    let image = document.createElement("div");
+    image.classList.add("image");
+
+    let title = document.createElement("h4");
+    title.textContent = `${book.title}`;
+
+    let author = document.createElement("p");
+    author.textContent = `${book.author}`;
+
+    let pages = document.createElement("p");
+    pages.textContent = `${book.pages} Pages`;
+
+    bookCard.appendChild(image);
+    bookCard.appendChild(title);
+    bookCard.appendChild(author);
+    bookCard.appendChild(pages);
+
+    if (book.status === 'read') {
+        read.appendChild(bookCard);
+    }
+    else {
+        toRead.appendChild(bookCard);
+    }
 }
 
 const addBtn = document.querySelectorAll(".show-modal");
@@ -65,20 +65,26 @@ addBtn.forEach((btn) => btn.addEventListener("click", () => modal.showModal()));
 const submitbtn = document.querySelector("#submit");
 
 submitbtn.addEventListener("click", (e) => {
-    e.preventDefault();
+    const form = document.querySelector("form");
     
+    if (!form.reportValidity()) {
+        e.preventDefault(); // Stop submission if HTML constraints fail
+        return;
+    }
+
+    e.preventDefault();
+
     const title = document.querySelector("#title").value;
     const author = document.querySelector("#author").value;
     const pages = document.querySelector("#pages").value;
     const status = document.querySelector("#status").value;
-    
+
     const book = new Book(title, author, pages, status);
     addNewBooks(book);
-    
+
     console.log(myBooks);
     modal.close();
 
-    const form = document.querySelector("form");
     form.reset();
 
     loadBooks(book);
