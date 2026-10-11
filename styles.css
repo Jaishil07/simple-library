@@ -47,3 +47,17 @@ main {
     border: 5px solid black;
     padding: 10px;
 }
+
+.read, .to-read {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: 300px;
+}
+
+.book-card {
+    background-color: white;
+
+    padding: 10px;
+    margin: 5px 10px;
+}
