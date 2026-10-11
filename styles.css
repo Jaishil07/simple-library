@@ -104,9 +104,9 @@ dialog {
 
 }
 
-/* dialog::backdrop{ */
-    /* backdrop-filter: rgb(0, 0, 0, 0.5); */
-/* } */
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
 .form-row{
     display: grid;
@@ -131,4 +131,17 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus{
     width: 255px;
     outline: none;
     border-bottom: 1px solid black;
+}
+
+hr {
+    margin: 10px auto;
+}
+
+footer{
+    margin: 10px auto 10px auto;
+    /* border-left: 1px solid black; */
+    /* border-right: 1px solid black; */
+    /* padding-bottom: 10px; */
+    display: flex;
+    justify-content: space-between;
 }
