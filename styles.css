@@ -90,3 +90,44 @@ button:hover {
     outline: 2px solid black;
     width: 110px;
 }
+
+dialog {
+    margin: auto;
+    inset: 0;
+    position: fixed;
+
+    max-width: 90vw;
+    max-height: 90vh;
+
+    padding: 20px;
+
+}
+
+/* dialog::backdrop{ */
+    /* backdrop-filter: rgb(0, 0, 0, 0.5); */
+/* } */
+
+.form-row{
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 15px;
+    margin: 10px auto;
+    justify-items: center;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+input[type="text"], input[type="number"], select{
+    width: 250px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, select:focus{
+    width: 255px;
+    outline: none;
+    border-bottom: 1px solid black;
+}

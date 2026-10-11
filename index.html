@@ -18,7 +18,7 @@
         <div class="top">
             <div class="purpose">
                 <h3>Books you have read</h3>
-                <button>Add New</button>
+                <button class="show-modal">Add New</button>
             </div>
 
             <div class="read">
@@ -38,7 +38,7 @@
         <div class="bottom">
             <div class="purpose">
                 <h3>Books you want to read</h3>
-                <button>Add New</button>
+                <button class="show-modal">Add New</button>
             </div>
 
             <div class="to-read">
@@ -48,6 +48,40 @@
             </div>
         </div>
     </main>
+
+    <dialog id="modal">
+        <h2>Add a new book</h2>
+
+        <form name="addBook">
+            <div class="form-row">
+                <label for="title">Title</label>
+                <input type="text" />
+            </div>
+
+            <div class="form-row">
+                <label for="author">Author</label>
+                <input type="text" />
+            </div>
+
+            <div class="form-row">
+                <label for="pages">Pages</label>
+                <input type="number" name="pages" id="pages">
+            </div>
+
+            <div class="form-row">
+                <label for="status">Status</label>
+                <select name="status" id="status">
+                    <option value="read">Read</option>
+                    <option value="reading">Reading</option>
+                    <option value="toRead">To Read</option>
+                </select>
+            </div>
+
+            <div class="form-row btn">
+                <button>Add Book</button>
+            </div>
+        </form>
+    </dialog>
 </body>
 
 </html>

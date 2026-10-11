@@ -51,3 +51,7 @@ myBooks.forEach((book) => {
     }
 })
 
+const addBtn = document.querySelectorAll(".show-modal");
+const modal = document.querySelector("#modal");
+
+addBtn.forEach((btn)=>btn.addEventListener("click", ()=> modal.showModal()));
