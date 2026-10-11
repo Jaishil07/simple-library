@@ -1,19 +1,20 @@
 let myBooks = [];
 
-function Book(title, author, pages, status) {
+function Book(title, author, pages, status, img) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.status = status;
+    this.image = img;
 }
 
 const addNewBooks = (book) => {
     myBooks.push(book);
 }
 
-const lotr = new Book("The Lord Of The Rings", "J.R.R. Tolkien", 1248, 'read');
-const dune = new Book("Dune", "Frank Herbert", 657, 'reading');
-const oathbringer = new Book("Oathbringer", "Brandon Sanderson", 1432, 'read');
+const lotr = new Book("The Lord Of The Rings", "J.R.R. Tolkien", 1248, 'read', "assets/image/lotr.jpg");
+const dune = new Book("Dune", "Frank Herbert", 657, 'reading', "assets/image/dune.jpg");
+const oathbringer = new Book("Oathbringer", "Brandon Sanderson", 1432, 'read', "assets/image/oathbringer.jpg");
 
 addNewBooks(lotr);
 addNewBooks(dune);
@@ -29,8 +30,9 @@ function loadBooks(book) {
     let bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
 
-    let image = document.createElement("div");
+    let image = document.createElement("img");
     image.classList.add("image");
+    image.src = book.image;
 
     let title = document.createElement("h4");
     title.textContent = `${book.title}`;
@@ -40,6 +42,7 @@ function loadBooks(book) {
 
     let pages = document.createElement("p");
     pages.textContent = `${book.pages} Pages`;
+    
 
     bookCard.appendChild(image);
     bookCard.appendChild(title);
@@ -66,7 +69,7 @@ const submitbtn = document.querySelector("#submit");
 
 submitbtn.addEventListener("click", (e) => {
     const form = document.querySelector("form");
-    
+
     if (!form.reportValidity()) {
         e.preventDefault(); // Stop submission if HTML constraints fail
         return;
@@ -78,8 +81,16 @@ submitbtn.addEventListener("click", (e) => {
     const author = document.querySelector("#author").value;
     const pages = document.querySelector("#pages").value;
     const status = document.querySelector("#status").value;
+    const image = document.querySelector("#image");
 
-    const book = new Book(title, author, pages, status);
+    const img = image.files[0];
+    let imgUrl;
+
+    if(img){
+        imgUrl = URL.createObjectURL(img);
+    }
+
+    const book = new Book(title, author, pages, status, imgUrl);
     addNewBooks(book);
 
     console.log(myBooks);

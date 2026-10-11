@@ -73,9 +73,10 @@ main {
 }
 
 .image {
-    height: 150px;
-    width: 150px;
+    /* height: 150px; */
+    width: 125px;
     background-color: #a8d8b9;
+    display: block;
 }
 
 button {
@@ -120,7 +121,7 @@ dialog {
     justify-content: center;
 }
 
-input[type="text"], input[type="number"], select{
+input[type="text"], input[type="number"], select, input[type="file"]{
     width: 250px;
     border: none;
     border-bottom: 1px solid black;
