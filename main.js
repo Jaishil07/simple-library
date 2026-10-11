@@ -12,13 +12,16 @@ const addNewBooks = (book) => {
 }
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 249, 'read');
+const dune = new Book("Dune", "Frank Herbert", 657, 'reading');
 
 addNewBooks(theHobbit);
+addNewBooks(dune);
 
 console.log(myBooks);
 
 myBooks.forEach((book) => {
     const read = document.querySelector(".read");
+    const toRead = document.querySelector(".to-read");
 
     let bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
@@ -40,6 +43,11 @@ myBooks.forEach((book) => {
     bookCard.appendChild(author);
     bookCard.appendChild(pages);
 
-    read.appendChild(bookCard);
+    if(book.status === 'read'){
+        read.appendChild(bookCard);
+    }
+    else {
+        toRead.appendChild(bookCard);
+    }
 })
 
