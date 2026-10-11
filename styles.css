@@ -1,0 +1,49 @@
+:root {
+    --main-background: #f0e3d7;
+}
+
+@font-face {
+    font-family: FirlFest;
+    src: url("assets/fonts/Firlest-Regular.woff2") format("woff2");
+    src: url("assets/fonts/Firlest-Regular.woff") format("woff");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+body {
+    font-family: Cambria, Georgia, 'Times New Roman', Times, serif;
+    background-color: var(--main-background);
+
+    width: 75%;
+    margin: 0px auto;
+}
+
+body>h1 {
+    font-family: FirlFest;
+    word-spacing: 2.5px;
+    letter-spacing: 1.15px;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.purpose {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.top, .bottom {
+    border: 5px solid black;
+    padding: 10px;
+}
