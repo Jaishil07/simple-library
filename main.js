@@ -44,12 +44,22 @@ function loadBooks(book) {
 
     let pages = document.createElement("p");
     pages.textContent = `${book.pages} Pages`;
+
+    let btn = document.createElement("button");
+    btn.classList.add("remove");
+    btn.id = book.uuid;
+
+    let span = document.createElement("span");
+    span.innerHTML = '&#10006;';
+
+    btn.appendChild(span);
     
 
     bookCard.appendChild(image);
     bookCard.appendChild(title);
     bookCard.appendChild(author);
     bookCard.appendChild(pages);
+    bookCard.appendChild(btn);
 
     if (book.status === 'read') {
         read.appendChild(bookCard);
@@ -116,3 +126,17 @@ function removeBook(book){
     parent.removeChild(bookCard);
 }
 
+const removebtn = document.querySelectorAll(".remove");
+
+removebtn.forEach((btn)=>btn.addEventListener("click", ()=>{
+    const bookId = btn.id;
+    let book;
+
+    myBooks.forEach((b)=>{
+        if(b.uuid === bookId){
+            book = b;
+        }
+    });
+
+    removeBook(book);
+}));
