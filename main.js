@@ -16,7 +16,9 @@ const addNewBooks = (book) => {
 const lotr = new Book("The Lord Of The Rings", "J.R.R. Tolkien", 1248, 'read', "assets/image/lotr.jpg");
 const dune = new Book("Dune", "Frank Herbert", 657, 'reading', "assets/image/dune.jpg");
 const oathbringer = new Book("Oathbringer", "Brandon Sanderson", 1432, 'read', "assets/image/oathbringer.jpg");
+const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 249, 'read', "assets/image/the-hobbit.jpg");
 
+addNewBooks(theHobbit);
 addNewBooks(lotr);
 addNewBooks(dune);
 addNewBooks(oathbringer);
