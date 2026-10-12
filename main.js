@@ -1,6 +1,7 @@
 let myBooks = [];
 
 function Book(title, author, pages, status, img) {
+    this.uuid = crypto.randomUUID();
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -29,6 +30,7 @@ function loadBooks(book) {
 
     let bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
+    bookCard.id = book.uuid;
 
     let image = document.createElement("img");
     image.classList.add("image");
@@ -100,4 +102,17 @@ submitbtn.addEventListener("click", (e) => {
 
     loadBooks(book);
 });
+
+function removeBook(book){
+    const bookCard = document.getElementById(book.uuid);
+    let parent;
+
+    if(book.status == 'read'){
+        parent = document.querySelector(".read");
+    } else {
+        parent = document.querySelector(".to-read");
+    }
+
+    parent.removeChild(bookCard);
+}
 
